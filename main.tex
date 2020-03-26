@@ -1,0 +1,137 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+% see https://github.com/KWARC/LaTeX-proposal/blob/master/base/proposal.pdf
+
+\usepackage[letterpaper, margin=1in, marginparwidth=0in, headheight=15pt]{geometry}
+\usepackage[scaled=.90]{helvet}
+\renewcommand\familydefault{\sfdefault} 
+\usepackage[T1]{fontenc}
+\let\mytodo\todo
+\let\todo\relax
+\usepackage{lipsum} 
+\usepackage[]{easy-todo}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\graphicspath{ {figures/} }
+\usepackage[labelfont=bf,font=it,justification=centering]{caption}
+\usepackage[export]{adjustbox}
+\usepackage{wrapfig}
+\usepackage{tabto}
+\usepackage{array}
+\usepackage{amsfonts}
+\usepackage[square]{natbib}
+\bibliographystyle{apalike}
+\usepackage{etaremune}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage[raggedright]{sidecap}
+\renewcommand{\bibsection}{}
+%\usepackage[style=authoryear-comp,hyperref=auto,backend=biber,backref=true,uniquelist=false,natbib]{biblatex}
+%\bibliography{references}
+\usepackage[table,x11names]{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,bookmarksnumbered,bookmarksdepth=3]{hyperref}
+\usepackage{tocloft}
+\setlength{\cftbeforesecskip}{1em} %Set spacing between Sections in the TOC
+
+\titleformat{\paragraph}[runin]{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}[. \mbox{}]
+\titlespacing*{\paragraph}{0pt}{1ex plus .5ex minus .2ex}{\the\fontdimen2\font}
+\renewcommand{\thesection}{\Alph{section}}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
+\setlength{\parindent}{20pt}
+
+% --- TOC
+\renewcommand{\contentsname}{Table of Contents}
+\setcounter{tocdepth}{1}% Allow only \section in ToC
+
+\newcommand{\secref}[1]{Sec.~\ref{#1}}
+\newcommand{\figref}[1]{Fig.~\ref{#1}}
+
+% --- HEADER
+\usepackage{fancyhdr}
+\fancypagestyle{main}{
+    \lhead{<CALL NUMBER>}
+    \rhead{<SHORT TITLE>}
+    \lfoot{\scriptsize Use or disclosure of information contained on this sheet is subject to the restriction on the Cover Page of this proposal.}
+    \cfoot{}
+    \rfoot{\thepage}
+}
+
+%-----------
+% DOCUMENT
+%-----------
+
+\begin{document}
+%\raggedbottom
+\pagestyle{main}
+
+% --- FULL TITLE
+\pagenumbering{arabic}
+\renewcommand{\thepage} {\roman{page}}
+\begin{center}
+\textbf{\emph{``<FULL TITLE>''}}
+
+% --- AUTHORS
+\vspace{1.5em}
+\textbf{PI: }<PI>; \textbf{Co-I: }<CO-IS>; \textbf{Collaborator: }<COLLABORATORS>
+\end{center}
+
+
+\tableofcontents
+\thispagestyle{main}
+
+\newpage
+\pagenumbering{arabic}
+\renewcommand{\thepage} {\thesection-\arabic{page}}
+\addtocontents{toc}{\setcounter{tocdepth}{3}} %Allow subsubsections to appear in the TOC
+\input{science_technical_management}
+\addtocontents{toc}{\setcounter{tocdepth}{1}} %Stop subsubsections to appear in the TOC
+
+\newpage
+\pagenumbering{arabic}
+\renewcommand{\thepage} {\thesection-\arabic{page}}
+\input{references}
+
+\newpage
+\pagenumbering{arabic}
+\renewcommand{\thepage} {\thesection-\arabic{page}}
+\input{data_management_plan}
+
+\newpage
+\pagenumbering{arabic}
+\renewcommand{\thepage} {\thesection-\arabic{page}}
+\input{biographical_sketches}
+
+\newpage
+\pagenumbering{arabic}
+\renewcommand{\thepage} {\thesection-\arabic{page}}
+\input{work_effort}
+
+\newpage
+\pagenumbering{arabic}
+\renewcommand{\thepage} {\thesection-\arabic{page}}
+\input{current_and_pending_support}
+
+%\newpage
+%\pagenumbering{arabic}
+%\renewcommand{\thepage} {\thesection-\arabic{page}}
+%\input{letters_of_support}
+
+\newpage
+\pagenumbering{arabic}
+\renewcommand{\thepage} {\thesection-\arabic{page}}
+\input{budget_justification}
+
+\newpage
+\pagenumbering{arabic}
+\renewcommand{\thepage} {\thesection-\arabic{page}}
+\input{facilities_equipment}
+
+\newpage
+\pagenumbering{arabic}
+\renewcommand{\thepage} {\thesection-\arabic{page}}
+\input{detailed_budget}
+
+%\newpage
+%\listoftodos
+
+\end{document}
