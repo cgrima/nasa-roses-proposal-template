@@ -1,4 +1,5 @@
-# nasa-roses-proposal-template
-Proposal template for NASA ROSES programs
+# Description
 
-Look at the nasa-roses-proposal-template.pdf file for an example
+Proposal template in LaTeX for NASA's Research Opportunities in Space and Earth Science (ROSES).
+
+An example and guidances are provided in the nasa-roses-proposal-template.pdf file.
